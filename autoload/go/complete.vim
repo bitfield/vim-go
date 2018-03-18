@@ -247,7 +247,15 @@ function! go#complete#Complete(findstart, base) abort
       return map(copy(s:completions[1]), 's:trim_bracket(v:val)')
     endif
 
-    return s:completions[1]
+    if get(g:, "go_complete_ignorecase", 0)
+      let res = copy(s:completions[1])
+      for d in res
+        call extend(d, { 'icase':1 })
+      endfor
+      return res
+    else
+      return s:completions[1]
+    endif
   endif
 endfunction
 

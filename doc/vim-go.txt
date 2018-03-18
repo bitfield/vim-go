@@ -1637,6 +1637,16 @@ default it's 60 seconds. Must be in milliseconds.
 >
       let g:go_statusline_duration = 60000
 <
+
+                                                  *'g:go_complete_ignorecase'*
+
+Specifies whether the omnicomplete menu should ignore case when matching. If
+this option is 1, case will be ignored (for example, typing 'fprintf' will
+match 'FPrintf').
+>
+      let g:go_complete_ignorecase = 0
+<
+
                                                    *'g:go_addtags_transform'*
 
 Sets the `transform` option for `gomodifytags` when using |:GoAddTags| or if
